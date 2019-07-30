@@ -1,0 +1,15 @@
+{
+  "app_name": "FeatureRanking",
+  "author": "Cahit Atilgan",
+  "main_module": "src/main/python/fearank/main.py",
+  "version": "0.0.0",
+  "hidden_imports": [
+    "pandas",
+    "cython",
+    "pymrmr",
+    "numpy",
+    "scikit-learn",
+    "tabulate",
+    "scikit-feature"
+  ]
+}

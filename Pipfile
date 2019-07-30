@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pytest = "*"
+pyinstaller = "*"
+auto-py-to-exe = "*"
+
+[packages]
+pandas = "*"
+cython = "*"
+pymrmr = "*"
+fbs = "*"
+"pyqt5" = "~=5.9.2"
+pyinstaller = "~=3.4"
+capturer = "*"
+scikit-learn = "*"
+tabulate = "*"
+scikit-feature = {git = "https://github.com/jundongl/scikit-feature"}
+pypiwin32 = "*"
+numpy = "==1.15.1"
+
+[requires]
+python_version = "3.6"

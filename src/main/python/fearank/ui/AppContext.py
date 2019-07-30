@@ -1,0 +1,25 @@
+from PyQt5 import QtCore
+from PyQt5.QtWidgets import QMainWindow
+from fbs_runtime.application_context import ApplicationContext
+
+from fearank.controller.MainController import MainController
+from fearank.ui.MainWindow import Ui_MainWindow
+
+
+class AppContext(ApplicationContext):
+
+    def run(self):
+        qt_main_window = QMainWindow(flags=QtCore.Qt.WindowStaysOnTopHint)
+
+        ui = Ui_MainWindow()
+        ui.setupUi(qt_main_window)
+
+        main_ctrl = MainController(ui, self._quit_app)
+        main_ctrl.bind_events()
+
+        qt_main_window.show()
+
+        return self.app.exec_()
+
+    def _quit_app(self):
+        self.app.quit()

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>605</width>
+    <height>761</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>DejaVu Sans</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>Feature Ranking</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabs">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>581</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_config">
+     <property name="accessibleName">
+      <string/>
+     </property>
+     <attribute name="title">
+      <string>Settings</string>
+     </attribute>
+     <widget class="QGroupBox" name="file_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>561</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Import / Export</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="export_btn">
+         <property name="toolTip">
+          <string>Export the ranking results as a text file</string>
+         </property>
+         <property name="text">
+          <string>Export (.txt)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="import_btn">
+         <property name="toolTip">
+          <string>Import a MSR &amp; MET data .csv file</string>
+         </property>
+         <property name="text">
+          <string>Import (.csv)</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="import_file">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>data.csv</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="export_file">
+         <property name="placeholderText">
+          <string>feature_ranking.txt</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="method_selection_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>310</y>
+        <width>561</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Ranking Methods</string>
+      </property>
+      <widget class="QWidget" name="gridLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>421</width>
+         <height>296</height>
+        </rect>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="6" column="0">
+         <widget class="QCheckBox" name="mutual_info_regression">
+          <property name="text">
+           <string>Mutual Information Regression</string>
+          </property>
+         </widget>
+        </item>
+        <item row="15" column="0">
+         <widget class="QCheckBox" name="random_forest_regressor">
+          <property name="text">
+           <string>Random Forest Regressor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QCheckBox" name="extra_trees_classifier">
+          <property name="text">
+           <string>Extra Trees Classifier</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QCheckBox" name="rmrmr">
+          <property name="text">
+           <string>rMRMR</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="13" column="0">
+         <widget class="QCheckBox" name="random_forest_classifier">
+          <property name="text">
+           <string>Random Forest Classifier</string>
+          </property>
+         </widget>
+        </item>
+        <item row="12" column="0">
+         <widget class="QCheckBox" name="extra_trees_regressor">
+          <property name="text">
+           <string>Extra Trees Regressor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QCheckBox" name="chi_square">
+          <property name="text">
+           <string>Chi-Square</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="f_score">
+          <property name="text">
+           <string>F-Score</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QCheckBox" name="rmrmr_cpp">
+          <property name="text">
+           <string>rMRMR (C++ Implementation)</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="config_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>561</width>
+        <height>181</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Configuration</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <layout class="QFormLayout" name="config_form_layout">
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="gt_col">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="gt_label">
+           <property name="text">
+            <string>Ground Truth Column</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="csv_header_label">
+           <property name="text">
+            <string>Header First Row</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QCheckBox" name="csv_header_checkbox">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="feature_col_label">
+           <property name="text">
+            <string>Feature Columns</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="feature_cols">
+           <property name="toolTip">
+            <string>Ranges like &quot;6-&quot;, &quot;6-9&quot; or comma separated columns &quot;6,8,9&quot;</string>
+           </property>
+           <property name="text">
+            <string>6-</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="iterations_label">
+           <property name="whatsThis">
+            <string>Determines how many iterations the ranking method should run.</string>
+           </property>
+           <property name="text">
+            <string>Iterations</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="1">
+          <widget class="QSpinBox" name="iterations">
+           <property name="accelerated">
+            <bool>true</bool>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="maximum">
+            <number>100000</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_results">
+     <attribute name="title">
+      <string>Results</string>
+     </attribute>
+     <widget class="QGroupBox" name="result_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>561</width>
+        <height>601</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Ranking Results</string>
+      </property>
+      <widget class="QTextEdit" name="ranking_results">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>541</width>
+         <height>531</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QToolButton" name="clear_results_btn">
+       <property name="geometry">
+        <rect>
+         <x>500</x>
+         <y>570</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Statistics</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>700</y>
+      <width>581</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QProgressBar" name="progress_bar">
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="calculate_btn">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Calculate Ranking</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="close_btn">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

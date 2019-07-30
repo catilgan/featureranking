@@ -1,0 +1,9 @@
+/.idea
+__pycache__
+/resources
+/.vagrant
+/target
+/build
+/dist
+/output
+/-*
