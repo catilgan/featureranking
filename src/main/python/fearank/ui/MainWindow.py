@@ -138,6 +138,10 @@ class Ui_MainWindow(object):
         self.progress_bar.setProperty("value", 0)
         self.progress_bar.setObjectName("progress_bar")
         self.horizontalLayout.addWidget(self.progress_bar)
+        self.progress_info = QtWidgets.QLabel(self.horizontalLayoutWidget)
+        self.progress_info.setText("")
+        self.progress_info.setObjectName("progress_info")
+        self.horizontalLayout.addWidget(self.progress_info)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.calculate_btn = QtWidgets.QPushButton(self.horizontalLayoutWidget)
@@ -188,6 +192,6 @@ class Ui_MainWindow(object):
         self.result_group.setTitle(_translate("MainWindow", "Ranking Results"))
         self.clear_results_btn.setText(_translate("MainWindow", "Clear"))
         self.tabs.setTabText(self.tabs.indexOf(self.tab_results), _translate("MainWindow", "Results"))
-        self.calculate_btn.setText(_translate("MainWindow", "Calculate Ranking"))
+        self.calculate_btn.setText(_translate("MainWindow", "Calculate"))
         self.close_btn.setText(_translate("MainWindow", "Close"))
 

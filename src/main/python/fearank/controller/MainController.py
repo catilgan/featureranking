@@ -2,6 +2,7 @@ from PyQt5.QtCore import QCoreApplication
 
 from fearank.controller.FileController import FileController
 from fearank.controller.InputController import InputController
+from fearank.controller.ProgressController import ProgressController
 from fearank.controller.ValidationController import ValidationController
 from fearank.file.CsvReader import CsvReader
 from fearank.ranking.ChiSquare import ChiSquare
@@ -14,9 +15,16 @@ from fearank.ranking.MutualInfoRegression import MutualInfoRegression
 from fearank.ranking.RandomForestClassifierScore import RandomForestClassifierScore
 from fearank.ranking.RandomForestRegressorScore import RandomForestRegressorScore
 from fearank.ranking.Ranking import Ranking
+from fearank.ui.MainWindow import Ui_MainWindow
 
 
 class MainController:
+    _ui: Ui_MainWindow
+    _widget_ctrl: InputController
+    _validation_ctrl: ValidationController
+    _input_ctrl: InputController
+    _file_ctrl: FileController
+    _progress_ctrl: ProgressController
 
     def __init__(self, ui, quit_method):
         self._ui = ui
@@ -29,6 +37,7 @@ class MainController:
         self._validation_ctrl = ValidationController(self._ui)
         self._input_ctrl = InputController(self._ui)
         self._file_ctrl = FileController(self._ui)
+        self._progress_ctrl = ProgressController(self._ui)
 
     def bind_events(self):
         self._ui.import_btn.clicked.connect(self._file_ctrl.import_action)
@@ -43,6 +52,7 @@ class MainController:
         self._ui.calculate_btn.setEnabled(False)
         QCoreApplication.processEvents()
 
+        self.start_progress()
         self.calculate_ranking()
 
         self._ui.calculate_btn.setEnabled(True)
@@ -93,11 +103,15 @@ class MainController:
         :param cols:
         :return:
         """
-        iterations = int(self._ui.iterations.value())
+        iterations = self.get_iterations()
         if iterations == 1:
             return algorithm.execute(data, cols)
         else:
             return algorithm.execute_multiple(data, cols, iterations)
+
+    def get_iterations(self):
+        iterations = int(self._ui.iterations.value())
+        return iterations
 
     def fetch_data(self):
         csv_file = self._file_ctrl.get_import_file()
@@ -105,3 +119,8 @@ class MainController:
         data = CsvReader.read_csv(csv_file, cols)
 
         return cols, data
+
+    def start_progress(self):
+        iterations = self.get_iterations()
+        self._progress_ctrl.set_max_iterations(iterations)
+        self._progress_ctrl.start()

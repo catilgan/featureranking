@@ -9,18 +9,22 @@ pyinstaller = "*"
 auto-py-to-exe = "*"
 
 [packages]
-pandas = "*"
+pandas = "==0.24.0"
 cython = "*"
 pymrmr = "*"
-fbs = "*"
-"pyqt5" = "~=5.9.2"
+fbs = "==0.8.3"
+pyqt5 = "~=5.9.2"
 pyinstaller = "~=3.4"
 capturer = "*"
 scikit-learn = "*"
 tabulate = "*"
-scikit-feature = {git = "https://github.com/jundongl/scikit-feature"}
-pypiwin32 = "*"
 numpy = "==1.15.1"
+pylzma = "*"
+"backports.lzma" = "*"
+setuptools = "*"
 
 [requires]
 python_version = "3.6"
+
+[packages.scikit-feature]
+git = "https://github.com/jundongl/scikit-feature"

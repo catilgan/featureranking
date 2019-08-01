@@ -1,9 +1,12 @@
 from PyQt5 import QtCore
+from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QMainWindow
-from fbs_runtime.application_context import ApplicationContext
+from fbs_runtime.application_context.PyQt5 import ApplicationContext
 
 from fearank.controller.MainController import MainController
 from fearank.ui.MainWindow import Ui_MainWindow
+
+QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
 
 
 class AppContext(ApplicationContext):
