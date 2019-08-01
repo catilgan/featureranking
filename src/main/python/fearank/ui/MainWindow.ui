@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
-    <height>761</height>
+    <width>600</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="font">
@@ -29,11 +29,11 @@
       <x>10</x>
       <y>10</y>
       <width>581</width>
-      <height>681</height>
+      <height>481</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_config">
      <property name="accessibleName">
@@ -94,107 +94,13 @@
        </item>
       </layout>
      </widget>
-     <widget class="QGroupBox" name="method_selection_group">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>310</y>
-        <width>561</width>
-        <height>341</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Ranking Methods</string>
-      </property>
-      <widget class="QWidget" name="gridLayoutWidget">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>30</y>
-         <width>421</width>
-         <height>296</height>
-        </rect>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_2">
-        <item row="6" column="0">
-         <widget class="QCheckBox" name="mutual_info_regression">
-          <property name="text">
-           <string>Mutual Information Regression</string>
-          </property>
-         </widget>
-        </item>
-        <item row="15" column="0">
-         <widget class="QCheckBox" name="random_forest_regressor">
-          <property name="text">
-           <string>Random Forest Regressor</string>
-          </property>
-         </widget>
-        </item>
-        <item row="11" column="0">
-         <widget class="QCheckBox" name="extra_trees_classifier">
-          <property name="text">
-           <string>Extra Trees Classifier</string>
-          </property>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QCheckBox" name="rmrmr">
-          <property name="text">
-           <string>rMRMR</string>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="13" column="0">
-         <widget class="QCheckBox" name="random_forest_classifier">
-          <property name="text">
-           <string>Random Forest Classifier</string>
-          </property>
-         </widget>
-        </item>
-        <item row="12" column="0">
-         <widget class="QCheckBox" name="extra_trees_regressor">
-          <property name="text">
-           <string>Extra Trees Regressor</string>
-          </property>
-         </widget>
-        </item>
-        <item row="3" column="0">
-         <widget class="QCheckBox" name="chi_square">
-          <property name="text">
-           <string>Chi-Square</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="0">
-         <widget class="QCheckBox" name="f_score">
-          <property name="text">
-           <string>F-Score</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="0">
-         <widget class="QCheckBox" name="rmrmr_cpp">
-          <property name="text">
-           <string>rMRMR (C++ Implementation)</string>
-          </property>
-          <property name="checked">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-     </widget>
      <widget class="QGroupBox" name="config_group">
       <property name="geometry">
        <rect>
         <x>10</x>
         <y>120</y>
         <width>561</width>
-        <height>181</height>
+        <height>151</height>
        </rect>
       </property>
       <property name="title">
@@ -206,28 +112,14 @@
        </property>
        <item>
         <layout class="QFormLayout" name="config_form_layout">
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="gt_col">
-           <property name="text">
-            <string>5</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="gt_label">
-           <property name="text">
-            <string>Ground Truth Column</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
+         <item row="0" column="0">
           <widget class="QLabel" name="csv_header_label">
            <property name="text">
             <string>Header First Row</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1">
+         <item row="0" column="1">
           <widget class="QCheckBox" name="csv_header_checkbox">
            <property name="text">
             <string/>
@@ -237,14 +129,28 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="0">
+         <item row="1" column="0">
+          <widget class="QLabel" name="gt_label">
+           <property name="text">
+            <string>Ground Truth Column</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="gt_col">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
           <widget class="QLabel" name="feature_col_label">
            <property name="text">
             <string>Feature Columns</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
+         <item row="2" column="1">
           <widget class="QLineEdit" name="feature_cols">
            <property name="toolTip">
             <string>Ranges like &quot;6-&quot;, &quot;6-9&quot; or comma separated columns &quot;6,8,9&quot;</string>
@@ -254,7 +160,7 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="0">
+         <item row="3" column="0">
           <widget class="QLabel" name="iterations_label">
            <property name="whatsThis">
             <string>Determines how many iterations the ranking method should run.</string>
@@ -264,7 +170,7 @@
            </property>
           </widget>
          </item>
-         <item row="7" column="1">
+         <item row="3" column="1">
           <widget class="QSpinBox" name="iterations">
            <property name="accelerated">
             <bool>true</bool>
@@ -281,6 +187,90 @@
        </item>
       </layout>
      </widget>
+     <widget class="QGroupBox" name="method_selection_group">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>561</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Ranking Methods</string>
+      </property>
+      <widget class="QWidget" name="formLayoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>541</width>
+         <height>121</height>
+        </rect>
+       </property>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="f_score">
+          <property name="text">
+           <string>F-Score</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QCheckBox" name="mutual_info_regression">
+          <property name="text">
+           <string>Mutual Information Regression</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QCheckBox" name="chi_square">
+          <property name="text">
+           <string>Chi-Square</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QCheckBox" name="random_forest_classifier">
+          <property name="text">
+           <string>Random Forest Classifier</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="extra_trees_classifier">
+          <property name="text">
+           <string>Extra Trees Classifier</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QCheckBox" name="random_forest_regressor">
+          <property name="text">
+           <string>Random Forest Regressor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QCheckBox" name="extra_trees_regressor">
+          <property name="text">
+           <string>Extra Trees Regressor</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QCheckBox" name="rmrmr_cpp">
+          <property name="text">
+           <string>rMRMR (C++ Implementation)</string>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_results">
      <attribute name="title">
@@ -292,7 +282,7 @@
         <x>10</x>
         <y>10</y>
         <width>561</width>
-        <height>601</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="title">
@@ -304,7 +294,7 @@
          <x>10</x>
          <y>30</y>
          <width>541</width>
-         <height>531</height>
+         <height>391</height>
         </rect>
        </property>
       </widget>
@@ -323,17 +313,12 @@
       </widget>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab">
-     <attribute name="title">
-      <string>Statistics</string>
-     </attribute>
-    </widget>
    </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>700</y>
+      <y>500</y>
       <width>581</width>
       <height>31</height>
      </rect>
