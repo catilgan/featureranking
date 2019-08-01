@@ -153,19 +153,19 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabs.setCurrentIndex(1)
+        self.tabs.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Feature Ranking"))
-        self.file_group.setTitle(_translate("MainWindow", "Import / Export"))
+        self.file_group.setTitle(_translate("MainWindow", "Import / Export Data"))
         self.export_btn.setToolTip(_translate("MainWindow", "Export the ranking results as a text file"))
         self.export_btn.setText(_translate("MainWindow", "Export (.txt)"))
         self.import_btn.setToolTip(_translate("MainWindow", "Import a MSR & MET data .csv file"))
         self.import_btn.setText(_translate("MainWindow", "Import (.csv)"))
         self.import_file.setPlaceholderText(_translate("MainWindow", "data.csv"))
-        self.export_file.setPlaceholderText(_translate("MainWindow", "feature_ranking.txt"))
+        self.export_file.setPlaceholderText(_translate("MainWindow", "Specify an output file name [optional]"))
         self.config_group.setTitle(_translate("MainWindow", "Configuration"))
         self.csv_header_label.setText(_translate("MainWindow", "Header First Row"))
         self.gt_label.setText(_translate("MainWindow", "Ground Truth Column"))

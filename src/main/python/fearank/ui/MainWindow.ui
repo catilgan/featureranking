@@ -33,7 +33,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_config">
      <property name="accessibleName">
@@ -52,7 +52,7 @@
        </rect>
       </property>
       <property name="title">
-       <string>Import / Export</string>
+       <string>Import / Export Data</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="1">
@@ -88,7 +88,7 @@
        <item row="1" column="3">
         <widget class="QLineEdit" name="export_file">
          <property name="placeholderText">
-          <string>feature_ranking.txt</string>
+          <string>Specify an output file name [optional]</string>
          </property>
         </widget>
        </item>
