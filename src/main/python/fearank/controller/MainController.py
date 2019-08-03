@@ -52,7 +52,6 @@ class MainController:
         self._ui.calculate_btn.setEnabled(False)
         QCoreApplication.processEvents()
         self.start_progress()
-        self._ui.calculate_btn.setEnabled(True)
 
     def calculate_ranking(self, progress_callback):
         outputs = []
@@ -72,6 +71,16 @@ class MainController:
         result = "".join(outputs)
         self.write_results(result)
         self.update_result_view(result)
+        self.post_calculation()
+
+    def post_calculation(self):
+        QMetaObject.invokeMethod(
+            self._ui.calculate_btn,
+            "setEnabled",
+            Qt.QueuedConnection,
+            Q_ARG(bool, True)
+        )
+        self._file_ctrl.set_export_file(None)
 
     def get_selected_ranking_methods(self):
         return self._widget_ctrl.get_selected_ranking_methods()

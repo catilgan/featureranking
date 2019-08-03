@@ -44,6 +44,8 @@ class FileController:
         if file_name:
             self._export_file = file_name
             self._ui.export_file.setText(file_name)
+        else:
+            self._export_file = None
 
     def write_results(self, output, method):
         result_file = self.get_export_file()
