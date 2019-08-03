@@ -10,8 +10,11 @@ class ProgressController:
     current_method = 0
     current_iteration = 0
 
-    _thread_pool: QThreadPool
     _max_iterations: int
+    _max_methods: int
+    _current_progress = 0
+
+    _thread_pool: QThreadPool
     _ui: Ui_MainWindow
     _time_start: datetime
     _time_current: datetime
@@ -23,6 +26,9 @@ class ProgressController:
 
         self._thread_pool = QThreadPool()
         print("Multithreading with maximum %d threads" % self._thread_pool.maxThreadCount())
+
+        self._max_iterations = 0
+        self._max_methods = 0
 
         self._interval = 1000
         self._timer = QTimer()
@@ -59,10 +65,18 @@ class ProgressController:
         self._timer.stop()
 
     def _update_progress(self):
-        text = self._get_progress()
+        progress = self._get_progress_percent()
+        self._ui.progress_bar.setValue(progress)
+
+        text = self._get_progress_text()
         self._ui.progress_info.setText(text)
 
-    def _get_progress(self):
+    def _get_progress_percent(self):
+        total = self._max_methods * self._max_iterations
+        progress = (ProgressController.current_method - 1) * self._max_iterations + ProgressController.current_iteration
+        return int(progress / total * 100)
+
+    def _get_progress_text(self):
         time_diff = self._time_current - self._time_start
         format_str = "{:d}. Method / {:d} of {:d} Iterations / {:.0f}s"
         text = format_str.format(
@@ -73,12 +87,12 @@ class ProgressController:
         )
         return text
 
-    def set_max_iterations(self, iterations):
-        self._max_iterations = iterations
-
     def _timer_tick(self):
         self._time_current = datetime.datetime.now()
         self._update_progress()
+
+    def set_max_iterations(self, iterations):
+        self._max_iterations = iterations
 
     @staticmethod
     def inc_iteration():
@@ -87,6 +101,9 @@ class ProgressController:
     @staticmethod
     def reset_iteration():
         ProgressController.current_iteration = 0
+
+    def set_max_methods(self, max_methods):
+        self._max_methods = max_methods
 
     @staticmethod
     def inc_method_counter():

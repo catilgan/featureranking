@@ -57,7 +57,7 @@ class MainController:
     def calculate_ranking(self, progress_callback):
         outputs = []
         cols, data = self.fetch_data()
-        ranking_methods = self._widget_ctrl.get_selected_ranking_methods()
+        ranking_methods = self.get_selected_ranking_methods()
 
         for ranking_method in ranking_methods:
             ProgressController.inc_method_counter()
@@ -72,6 +72,9 @@ class MainController:
         result = "".join(outputs)
         self.write_results(result)
         self.update_result_view(result)
+
+    def get_selected_ranking_methods(self):
+        return self._widget_ctrl.get_selected_ranking_methods()
 
     def write_results(self, result):
         self._file_ctrl.write_results(result, Ranking.TYPE)
@@ -133,6 +136,8 @@ class MainController:
 
     def start_progress(self):
         iterations = self.get_iterations()
+        num_methods = len(self.get_selected_ranking_methods())
+        self._progress_ctrl.set_max_methods(num_methods)
         self._progress_ctrl.set_max_iterations(iterations)
         self._progress_ctrl.init_progress(self.calculate_ranking)
         self._progress_ctrl.start()
