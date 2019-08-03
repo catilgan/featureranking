@@ -2,6 +2,8 @@ import abc
 
 from tabulate import tabulate
 
+from fearank.controller.ProgressController import ProgressController
+
 
 class Ranking(metaclass=abc.ABCMeta):
     """
@@ -75,6 +77,7 @@ class Ranking(metaclass=abc.ABCMeta):
 
         for it in range(iterations):
             idx, score = ranking_func(x, y)
+            ProgressController.inc_iteration()
 
             for i in idx[0:num_fea]:
                 if x_orig.columns[i] not in scores:

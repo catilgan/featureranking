@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "23b4627203291f4ce9dd22490d5c13b8b4597339b4cc4c32b56342b38ec3528a"
+            "sha256": "8cc8f4f53481561a571639a2132b9dd4362dca032f2f3990085bb3498754b717"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,13 +22,6 @@
                 "sha256:ddf5320017147ba7b810198e0b6619bd7b5563aa034da388cea8546b877f9b0c"
             ],
             "version": "==0.16.1"
-        },
-        "backports.lzma": {
-            "hashes": [
-                "sha256:50829db66f0445442f6c796bba0ca62d1f87f54760c4682b6d1489e729a43744"
-            ],
-            "index": "pypi",
-            "version": "==0.0.13"
         },
         "capturer": {
             "hashes": [
@@ -159,13 +152,6 @@
             ],
             "index": "pypi",
             "version": "==3.5"
-        },
-        "pylzma": {
-            "hashes": [
-                "sha256:b874172afbf37770e643bf2dc9d9b6b03eb95d8f8162e157145b3fe9e1b68a1c"
-            ],
-            "index": "pypi",
-            "version": "==0.5.0"
         },
         "pymrmr": {
             "hashes": [

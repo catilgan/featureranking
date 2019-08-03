@@ -19,12 +19,7 @@ capturer = "*"
 scikit-learn = "*"
 tabulate = "*"
 numpy = "==1.15.1"
-pylzma = "*"
-"backports.lzma" = "*"
-setuptools = "*"
+scikit-feature = {git = "https://github.com/jundongl/scikit-feature"}
 
 [requires]
 python_version = "3.6"
-
-[packages.scikit-feature]
-git = "https://github.com/jundongl/scikit-feature"

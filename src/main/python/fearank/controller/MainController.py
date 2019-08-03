@@ -1,4 +1,4 @@
-from PyQt5.QtCore import QCoreApplication
+from PyQt5.QtCore import QCoreApplication, Qt, Q_ARG, QMetaObject
 
 from fearank.controller.FileController import FileController
 from fearank.controller.InputController import InputController
@@ -51,27 +51,38 @@ class MainController:
     def calculate_action(self):
         self._ui.calculate_btn.setEnabled(False)
         QCoreApplication.processEvents()
-
         self.start_progress()
-        self.calculate_ranking()
-
         self._ui.calculate_btn.setEnabled(True)
 
-    def calculate_ranking(self):
+    def calculate_ranking(self, progress_callback):
+        outputs = []
         cols, data = self.fetch_data()
-
         ranking_methods = self._widget_ctrl.get_selected_ranking_methods()
 
-        outputs = []
         for ranking_method in ranking_methods:
+            ProgressController.inc_method_counter()
+            ProgressController.reset_iteration()
+
             output = self.execute_ranking(ranking_method, data, cols)
+            progress_callback.emit(0)
+
             self._file_ctrl.write_results(output, ranking_method)
             outputs.append(output)
 
         result = "".join(outputs)
+        self.write_results(result)
+        self.update_result_view(result)
 
+    def write_results(self, result):
         self._file_ctrl.write_results(result, Ranking.TYPE)
-        self._ui.ranking_results.setText(result)
+
+    def update_result_view(self, result):
+        QMetaObject.invokeMethod(
+            self._ui.ranking_results,
+            "setText",
+            Qt.QueuedConnection,
+            Q_ARG(str, str(result))
+        )
 
     def execute_ranking(self, ranking_method, data, cols):
         output = ''
@@ -123,4 +134,5 @@ class MainController:
     def start_progress(self):
         iterations = self.get_iterations()
         self._progress_ctrl.set_max_iterations(iterations)
+        self._progress_ctrl.init_progress(self.calculate_ranking)
         self._progress_ctrl.start()
