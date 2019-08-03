@@ -36,4 +36,5 @@ class ValidationController:
         else:
             color = '#ffffff'
 
-        field.setStyleSheet('QLineEdit { background-color: %s }' % color)
+        font = 'font: normal 11pt "DejaVu Sans"'
+        field.setStyleSheet('QLineEdit { background-color: %s; %s; }' % (color, font))
