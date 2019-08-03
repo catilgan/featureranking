@@ -47,6 +47,8 @@ class Ranking(metaclass=abc.ABCMeta):
 
         idx, score = ranking_func(x, y)
 
+        ProgressController.inc_iteration()
+
         values = []
         for i in idx[0:num_fea]:
             values.insert(i, [x_orig.columns[i], score[i]])
