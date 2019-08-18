@@ -5,21 +5,21 @@ name = "pypi"
 
 [dev-packages]
 pytest = "*"
-pyinstaller = "*"
-auto-py-to-exe = "*"
+pyinstaller = "==3.4"
+auto-py-to-exe = "==2.6.5"
 
 [packages]
 pandas = "==0.24.0"
 cython = "*"
-pymrmr = "*"
 fbs = "==0.8.3"
 pyqt5 = "~=5.9.2"
-pyinstaller = "~=3.4"
-capturer = "*"
+pyinstaller = "==3.4"
 scikit-learn = "*"
 tabulate = "*"
 numpy = "==1.15.1"
 scikit-feature = {git = "https://github.com/jundongl/scikit-feature"}
+pywin32 = "==224"
+pymrmr = "==0.1.8"
 
 [requires]
 python_version = "3.6"
